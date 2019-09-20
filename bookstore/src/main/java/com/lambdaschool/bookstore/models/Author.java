@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "author")
-public class Author
+public class Author extends Auditable
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,6 +25,12 @@ public class Author
 
     public Author()
     {
+    }
+
+    public Author(String firstname, String lastname)
+    {
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
 
     public long getAuthorid()
@@ -55,5 +61,15 @@ public class Author
     public void setLastname(String lastname)
     {
         this.lastname = lastname;
+    }
+
+    public List<BookAuthors> getBookAuthors()
+    {
+        return bookAuthors;
+    }
+
+    public void setBookAuthors(List<BookAuthors> bookAuthors)
+    {
+        this.bookAuthors = bookAuthors;
     }
 }

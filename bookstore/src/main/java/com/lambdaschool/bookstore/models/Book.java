@@ -32,6 +32,19 @@ public class Book
     {
     }
 
+    public Book(String title, String isbn, int copy, List<BookAuthors> bookAuthors)
+    {
+        this.title = title;
+        this.isbn = isbn;
+        this.copy = copy;
+
+        for (BookAuthors ba : bookAuthors)
+        {
+            ba.setBook(this);
+        }
+        this.bookAuthors = bookAuthors;
+    }
+
     public long getBookid()
     {
         return bookid;
@@ -42,12 +55,12 @@ public class Book
         this.bookid = bookid;
     }
 
-    public String getBooktitle()
+    public String getTitle()
     {
         return title;
     }
 
-    public void setBooktitle(String title)
+    public void setTitle(String title)
     {
         this.title = title;
     }
@@ -70,5 +83,15 @@ public class Book
     public void setCopy(int copy)
     {
         this.copy = copy;
+    }
+
+    public List<BookAuthors> getBookAuthors()
+    {
+        return bookAuthors;
+    }
+
+    public void setBookAuthors(List<BookAuthors> bookAuthors)
+    {
+        this.bookAuthors = bookAuthors;
     }
 }
