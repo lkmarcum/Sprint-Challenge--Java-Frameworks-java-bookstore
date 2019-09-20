@@ -43,7 +43,7 @@ public class BookServiceImpl implements BookService
         if (bookrepos.findById(id).isPresent())
         {
             bookrepos.deleteById(id);
-            authorrepos.deleteBookAuthorsByBookId(id);
+            // authorrepos.deleteBookAuthorsByBookId(id);
         }
         else
         {

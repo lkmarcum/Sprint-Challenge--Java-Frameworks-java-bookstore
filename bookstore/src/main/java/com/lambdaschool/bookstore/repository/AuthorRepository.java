@@ -8,10 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface AuthorRepository extends PagingAndSortingRepository<Author, Long>
 {
-    @Transactional
-    @Modifying
-    @Query(value = "DELETE from bookauthors where bookid = :bookid")
-    void deleteBookAuthorsByBookId(long bookid);
+//    @Transactional
+//    @Modifying
+//    @Query(value = "DELETE from bookauthors where bookid = :bookid")
+//    void deleteBookAuthorsByBookId(long bookid);
 
     @Transactional
     @Modifying
