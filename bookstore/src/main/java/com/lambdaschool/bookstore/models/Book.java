@@ -1,6 +1,11 @@
 package com.lambdaschool.bookstore.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "book")
@@ -16,6 +21,12 @@ public class Book
 
     @Column(nullable = true)
     private int copy;
+
+    @ApiModelProperty(name = "bookAuthors", value = "List of Book Authors")
+    @OneToMany(mappedBy = "book",
+            cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("book")
+    private List<BookAuthors> bookAuthors = new ArrayList<>();
 
     public Book()
     {
